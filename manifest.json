@@ -1,0 +1,16 @@
+{
+  "name": "SohoOS API Sniffer",
+  "description": "Helps monitoring SohoOS API RESTful activities",
+  "version": "0.0.1",
+  "icons": { "16": "images/logo.png" },	
+  "permissions": ["tabs", "notifications", "cookies", "http://*/*" ],
+  "browser_action": {
+    "default_icon": "images/logo.png", 
+    "default_title": "SohoOS sniffer",      
+    "default_popup": "popup.html"        
+  },
+  "background_page": "background.html",
+  "options_page": "options.html"
+}
+
+
