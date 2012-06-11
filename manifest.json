@@ -1,15 +1,12 @@
 {
-  "name": "SohoOS API Sniffer",
-  "description": "Helps monitoring SohoOS API RESTful activities",
+  "name": "API Sniffer",
+  "description": "Helps monitoring RESTful API",
   "version": "0.0.1",
   "icons": { "16": "images/logo.png" },	
   "permissions": ["tabs", "notifications", "webRequest", "cookies", "https://www.managekit.net/*" ],
-  "browser_action": {
-    "default_icon": "images/logo.png", 
-    "default_title": "SohoOS sniffer",      
-    "default_popup": "popup.html"        
-  },
+  "devtools_page": "devtools.html",
   "background_page": "background.html",
+  "minimum_chrome_version": "10.0",
   "options_page": "options.html"
 }
 
