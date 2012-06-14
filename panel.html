@@ -9,6 +9,7 @@
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
     
     <style>
       body {
@@ -17,13 +18,14 @@
     </style>
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
+
+    <script src="lib/panel.js"></script>
+    
+	<script type="text/template" id="session_entry">
+    	<label>Request</label>
+	</script>    
   </head>
 
   <body>
@@ -50,10 +52,10 @@
 					  <div class="span12" >
 					    <div class="row-fluid" >
 					      <div class="span2">
-					            <ul id="api-3-list" class="nav nav-list">
-					              <li><a href="#1">5 <span class="label label-success">OK</span></a></li>
-					              <li><a href="#2">feeds <span class="label label-warning">OK</span></a></li>
-					              <li><a href="#3">all <span class="label label-important">Not Found</span></a></li>
+					            <ul id="api-list" class="nav nav-list">
+					              <li><a href="#s/1">5 <span class="label label-success">OK</span></a></li>
+					              <li><a href="#s/2">feeds <span class="label label-warning">OK</span></a></li>
+					              <li><a href="#s/3">all <span class="label label-important">Not Found</span></a></li>
 					            </ul>
 				        </div><!--/span-->
 				        
