@@ -28,7 +28,92 @@
     <script src="lib/panel.js"></script>
     
 	<script type="text/template" id="session_entry">
-    	<label>Request</label>
+    	<li><a href="#s/<%= sid %>"><%= name %> <span class="label <%= res_label %>"><%= res_statusText %></span></a></li>
+	</script>    
+	
+	<script type="text/template" id="main_view_template">
+        <div id="session-header" style="margin-left: -30px">
+	        <code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;
+        	<span class="badge <%= badge %>"><%= status %></span>&nbsp;&nbsp;&nbsp;
+        	<span class="badge"><%= time %>ms</span>&nbsp;&nbsp;&nbsp;
+        	<span class="badge"><%= datetime %></span>
+        	 <br/>
+        	 <br/>
+        </div>
+			<div class="row">
+	        	<div class="span5">
+				  <div class="well" style="padding-top: 10px">
+				  	   <b>Input Parameters</b><br/>
+					   <table class="table table-condensed">
+						  <tbody>
+		                       <% _.each(req_parameters,function(item,key,list){ %>
+                               <% var ik = item.key %>
+                               <% var iv = item.value %>
+                               <tr>
+                                   <td style="width: 25%"><%= ik %></td>
+							       <td><code><%= iv %></code></td>
+                               </tr>
+	                           <% }) %>
+						  </tbody>
+						</table>
+					   <b>Headers</b><br/>
+					   <table class="table table-condensed">
+						  <tbody>
+		                       <% _.each(req_header,function(item,key,list){ %>
+                               <% var ik = item.name %>
+                               <% var iv = item.value %>
+                               <tr>
+                                   <td style="width: 25%"><%= ik %></td>
+							       <td><code><%= iv %></code></td>
+                               </tr>
+	                           <% }) %>
+						  </tbody>
+						</table>
+					   <b>Cookies</b><br/>
+					   <table class="table table-condensed">
+						  <tbody>
+						    <tr>
+						      <td style="width: 25%">sohoos_token</td>
+						      <td><abbr title="sohoos_466443c15261ab71ebad8d8b73721e31d"><code>sohoos_466443c...</code></abbr></td>
+						    </tr>
+						    <tr>
+						      <td>sohoos_logged</td>
+						      <td><code>logged</code></td>
+						    </tr>
+						  </tbody>
+						</table>
+				  </div>							  
+			  </div>
+		      <div class="span5">
+				  <div class="well" style="padding-top: 10px">
+				  <b>Output Parameters</b><br/>
+				  
+				   <table class="table table-condensed">
+					  <tbody>
+					    <tr>
+					      <td style="width: 25%">id</td>
+					      <td><code>5</code></td>
+					    </tr>
+					  </tbody>
+					</table>
+				   <b>Headers</b><br/>
+				   <table class="table table-condensed">
+					  <tbody>
+					    <tr>
+					      <td style="width: 25%">Date</td>
+					      <td><code>Mon, 11 Jun 2012 13:04:45 GMT</code></td>
+					    </tr>
+					    <tr>
+					      <td>Content-Length</td>
+					      <td><code>272</code></td>
+					    </tr>
+					  </tbody>
+					</table>
+				   
+				  </div>							  
+			  </div>
+	
+	</div>
 	</script>    
   </head>
 
@@ -55,105 +140,18 @@
 				   <div class="row-fluid show-grid" >
 					  <div class="span12" >
 					    <div class="row-fluid" >
-					      <div class="span2">
-					            <ul id="api-list" class="nav nav-list">
-					              <li><a href="#s/1">5 <span class="label label-success">OK</span></a></li>
-					              <li><a href="#s/2">feeds <span class="label label-warning">OK</span></a></li>
-					              <li><a href="#s/3">all <span class="label label-important">Not Found</span></a></li>
+					    
+					    	<div class="span2">
+					            <ul id="api_list" class="nav nav-list">
 					            </ul>
-				        </div><!--/span-->
-				        
-				        <div class="span10">
-					        <div id="session-header" style="margin-left: -30px">
-						        <code>GET /baseurl/controller/action</code>&nbsp;&nbsp;&nbsp;
-					        	<span class="badge badge-success">200</span>&nbsp;&nbsp;&nbsp;
-					        	<span class="badge">576ms</span>&nbsp;&nbsp;&nbsp;
-					        	<span class="badge">4:12:03 PM</span>
-					        	 <br/>
-					        	 <br/>
+				        	</div>
+				        	
+					        <div id="main_view" class="span10">
 					        </div>
-        						<div class="row">
-						        	<div class="span5">
-									  <div class="well" style="padding-top: 10px">
-									  	   <b>Input Parameters</b><br/>
-										   <table class="table table-condensed">
-											  <tbody>
-											    <tr>
-											      <td style="width: 25%">id</td>
-											      <td><code>5</code></td>
-											    </tr>
-											    <tr>
-											      <td>foo</td>
-											      <td><code>bar</code></td>
-											    </tr>
-											  </tbody>
-											</table>
-										   <b>Headers</b><br/>
-										   <table class="table table-condensed">
-											  <tbody>
-											    <tr>
-											      <td style="width: 25%">Accept</td>
-											      <td><code>application/json, text/javascript, */*; q=0.01</code></td>
-											    </tr>
-											    <tr>
-											      <td>Accept-Charset</td>
-											      <td><code>ISO-8859-1,utf-8;q=0.7,*;q=0.3</code></td>
-											    </tr>
-						    					<tr>
-											      <td>Accept-Encoding</td>
-											      <td><code>gzip,deflate,sdch</code></td>
-											    </tr>											    
-											  </tbody>
-											</table>
-										   <b>Cookies</b><br/>
-										   <table class="table table-condensed">
-											  <tbody>
-											    <tr>
-											      <td style="width: 25%">sohoos_token</td>
-											      <td><abbr title="sohoos_466443c15261ab71ebad8d8b73721e31d"><code>sohoos_466443c...</code></abbr></td>
-											    </tr>
-											    <tr>
-											      <td>sohoos_logged</td>
-											      <td><code>logged</code></td>
-											    </tr>
-											  </tbody>
-											</table>
-									  </div>							  
-								  </div>
-							      <div class="span5">
-									  <div class="well" style="padding-top: 10px">
-									  <b>Output Parameters</b><br/>
-									  
-									   <table class="table table-condensed">
-										  <tbody>
-										    <tr>
-										      <td style="width: 25%">id</td>
-										      <td><code>5</code></td>
-										    </tr>
-										  </tbody>
-										</table>
-									   <b>Headers</b><br/>
-									   <table class="table table-condensed">
-										  <tbody>
-										    <tr>
-										      <td style="width: 25%">Date</td>
-										      <td><code>Mon, 11 Jun 2012 13:04:45 GMT</code></td>
-										    </tr>
-										    <tr>
-										      <td>Content-Length</td>
-										      <td><code>272</code></td>
-										    </tr>
-										  </tbody>
-										</table>
-									   
-									  </div>							  
-								  </div>
-						
-						</div>
-				        </div>
-				        </div>
-						</div>
-					    </div>
+					        
+			        	</div>
+				  	</div>
+	  	       </div>
 			</div>
 		    <div class="tab-pane" id="tab2">
 				Second tab...
