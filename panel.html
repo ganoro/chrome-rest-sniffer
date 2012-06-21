@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="lib/underscore.js"></script>
 	<script type="text/javascript" src="lib/backbone.js"></script>
 	<script type="text/javascript" src="lib/URI.js"></script>
+	<script type="text/javascript" src="lib/moment.js"></script>
 
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -35,7 +36,7 @@
 	<script type="text/template" id="main_view_template">
         <div id="session-header" style="margin-left: -30px">
 	        <code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;
-        	<span class="badge <%= res_badge %>"><%= status %></span>&nbsp;&nbsp;&nbsp;
+        	<span class="badge <%= res_badge %>"><%= res_statusText %></span>&nbsp;&nbsp;&nbsp;
         	<span class="badge"><%= res_timings %>ms</span>&nbsp;&nbsp;&nbsp;
         	<span class="badge"><%= datetime %></span>
         	 <br/>
