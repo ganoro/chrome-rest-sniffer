@@ -6,28 +6,67 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<script type="text/javascript" src="lib/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/underscore.js"></script>
-	<script type="text/javascript" src="lib/backbone.js"></script>
-	<script type="text/javascript" src="lib/URI.js"></script>
-	<script type="text/javascript" src="lib/moment.js"></script>
-
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
-    
+	<!-- Le javascript
+    ================================================== -->
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/underscore.js"></script>
+	<script type="text/javascript" src="lib/backbone.js"></script>
+	<script type="text/javascript" src="lib/URI.js"></script>
+	<script type="text/javascript" src="lib/shorten.js"></script>
+	<script type="text/javascript" src="lib/moment.js"></script>
+    <script type="text/javascript" src="lib/panel.js"></script>
+
     <style>
       body {
         padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
+      
+      .coder {
+      	background-color: #F7F7F9;
+		border-bottom-color: #E1E1E8;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-left-color: #E1E1E8;
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-right-color: #E1E1E8;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-top-color: #E1E1E8;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-top-style: solid;
+		border-top-width: 1px;
+		color: #D14;
+		display: inline;
+		font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+		font-size: 12px;
+		height: auto;
+		line-height: 18px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 2px;
+		width: auto;
+      }
     </style>
+    
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
 
-    <script src="lib/panel.js"></script>
     
 	<script type="text/template" id="session_entry">
     	<li><a href="#s/<%= sid %>"><%= name %> <span class="label <%= res_label %>"><%= res_statusText %></span></a></li>
@@ -49,11 +88,11 @@
 					   <table class="table table-condensed">
 						  <tbody>
 		                       <% _.each(req_parameters,function(item,key,list){ %>
-                               <% var ik = item.key %>
+                               <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-                                   <td style="width: 25%"><%= ik %></td>
-							       <td><code><%= iv %></code></td>
+							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 						  </tbody>
@@ -65,8 +104,8 @@
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-                                   <td style="width: 25%"><%= ik %></td>
-							       <td><code><%= iv %></code></td>
+							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 						  </tbody>
@@ -78,8 +117,8 @@
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-                                   <td style="width: 25%"><%= ik %></td>
-							       <td><code><%= iv %></code></td>
+							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 						  </tbody>
@@ -96,8 +135,8 @@
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-                                   <td style="width: 25%"><%= ik %></td>
-							       <td><code><%= iv %></code></td>
+							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 					  </tbody>
@@ -109,8 +148,8 @@
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-                                   <td style="width: 25%"><%= ik %></td>
-							       <td><code><%= iv %></code></td>
+							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 					  </tbody>
@@ -164,11 +203,6 @@
 		</div>
 
     </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
+  
   </body>
 </html>
