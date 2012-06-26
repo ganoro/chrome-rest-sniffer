@@ -91,33 +91,33 @@
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
 							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 						  </tbody>
 						</table>
-					   <b>Headers</b><br/>
-					   <table class="table table-condensed">
+					   <a href="javascript:toggleTable('req_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="req_headers_tip">show</span>)</a><br/>
+					   <table class="table table-condensed" id="req_headers_table">
 						  <tbody>
 		                       <% _.each(req_headers,function(item,key,list){ %>
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
 							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 						  </tbody>
 						</table>
-					   <b>Cookies</b><br/>
-					   <table class="table table-condensed">
+					   <a href="javascript:toggleTable('req_cookies')" style="text-decoration: none;"><b>Cookies</b>(<span id="req_cookies_tip">show</span>)</a><br/>
+					   <table class="table table-condensed" id="req_cookies_table">
 						  <tbody>
 		                       <% _.each(req_cookies,function(item,key,list){ %>
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
 							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
@@ -128,27 +128,26 @@
 		      <div class="span5">
 				  <div class="well" style="padding-top: 10px">
 				  <b>Output Parameters</b><br/>
-				  
 				   <table class="table table-condensed">
 					  <tbody>
 		                       <% _.each(res_parameters,function(item,key,list){ %>
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
 							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
 					  </tbody>
 					</table>
-				   <b>Headers</b><br/>
-				   <table class="table table-condensed">
+					<a href="javascript:toggleTable('res_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="res_headers_tip">show</span>)</a><br/>
+					<table class="table table-condensed" id="res_headers_table">
 					  <tbody>
 		                       <% _.each(res_headers,function(item,key,list){ %>
                                <% var ik = item.name %>
                                <% var iv = item.value %>
                                <tr>
-							       <td style="width: 25%"><span class="shorten25"><%= ik %></span></td>
+							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
 							       <td><span class="shorten75"><%= iv %></span></td>
                                </tr>
 	                           <% }) %>
