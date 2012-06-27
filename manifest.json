@@ -3,7 +3,7 @@
   "description": "Helps monitoring RESTful API",
   "version": "0.0.1",
   "icons": { "16": "images/logo.png" },	
-  "permissions": ["tabs", "notifications", "webRequest", "cookies", "<all_urls>" ],
+  "permissions": ["webRequest", "cookies", "<all_urls>" ],
   "devtools_page": "devtools.html",
   "background_page": "background.html",
   "minimum_chrome_version": "10.0",
