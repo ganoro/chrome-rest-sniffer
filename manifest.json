@@ -2,7 +2,7 @@
   "name": "API Sniffer",
   "description": "Helps monitoring RESTful API",
   "version": "0.0.1",
-  "icons": { "16": "images/logo.png" },	
+  "icons": { "48": "images/logo48.png", "128": "images/logo128.png" },	
   "permissions": ["webRequest", "cookies", "<all_urls>" ],
   "devtools_page": "devtools.html",
   "background_page": "background.html",

@@ -50,15 +50,21 @@
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
-
-    
+  
 	<script type="text/template" id="session_entry">
-    	<li><a href="#s/<%= sid %>"><%= name %> <span class="label <%= res_label %>"><%= res_statusText %></span></a></li>
+    	<li><a href="#s/<%= sid %>">
+			<table style="width: 100%">
+  				<tr>
+	    			<td><%= name %></td>
+	    			<td style="text-align:right; align: right;float:right;"><span class="label <%= res_label %>"><%= res_statusText %></span></td>
+			 	</tr>
+			</table>
+		</a></li>
 	</script>    
 	
 	<script type="text/template" id="main_view_template">
         <div id="session-header" style="margin-left: -30px">
-	        <code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;
+	        <span title="<%= url %>"><code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;</span>
         	<span class="badge <%= res_badge %>"><%= res_statusText %></span>&nbsp;&nbsp;&nbsp;
         	<span class="badge"><%= res_timings %>ms</span>&nbsp;&nbsp;&nbsp;
         	<span class="badge"><%= datetime %></span>
@@ -158,8 +164,7 @@
     <div class="container-fluid">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 		  <ul class="nav nav-tabs">
-		    <li class="active"><a href="#tab1" data-toggle="tab">Version 3</a></li>
-		    <li><a href="#tab2" data-toggle="tab">Version 4</a></li>
+		    <li class="active"><a href="#tab1" data-toggle="tab">SohoOS API</a></li>
 		  </ul>
 		  <div class="tab-content">
 		    <div class="tab-pane active" id="tab1">
@@ -181,6 +186,12 @@
 			</div>
 		    <div class="tab-pane" id="tab2">
 				Second tab...
+		    </div>
+		    <div class="tab-pane" id="tab3">
+				Third tab...
+		    </div>
+		    <div class="tab-pane" id="tab4">
+				Third tab...
 		    </div>
 		  </div>
 		</div>
