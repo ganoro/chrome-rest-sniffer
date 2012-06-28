@@ -52,7 +52,7 @@
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
   
 	<script type="text/template" id="session_entry">
-    	<li><a href="#s/<%= sid %>">
+    	<li id="list_entry_<%= sid %>"><a href="#s/<%= sid %>">
 			<table style="width: 100%">
   				<tr>
 	    			<td><%= name %></td>
@@ -63,7 +63,7 @@
 	</script>    
 	
 	<script type="text/template" id="main_view_template">
-        <div id="session-header" style="margin-left: -30px">
+        <div id="session-header" style="margin-left: -20px">
 	        <span title="<%= url %>"><code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;</span>
         	<span class="badge <%= res_badge %>"><%= res_statusText %></span>&nbsp;&nbsp;&nbsp;
         	<span class="badge"><%= res_timings %>ms</span>&nbsp;&nbsp;&nbsp;
@@ -171,7 +171,6 @@
 				   <div class="row-fluid show-grid" >
 					  <div class="span12" >
 					    <div class="row-fluid" >
-					    
 					    	<div class="span2">
 					            <ul id="api_list" class="nav nav-list">
 					            </ul>
