@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+    <title>API Sniffer</title>
+
+    <!-- Le styles -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<!-- Le javascript
+    ================================================== -->
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/underscore.js"></script>
+	<script type="text/javascript" src="lib/backbone.js"></script>
+	<script type="text/javascript" src="lib/URI.js"></script>
+	<script type="text/javascript" src="lib/shorten.js"></script>
+	<script type="text/javascript" src="lib/moment.js"></script>
+    <script type="text/javascript" src="lib/panel.js"></script>
+
+    <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
+  
+</head>
+<body style="width: 500px; height: 100px">
+<br/><h2>API Sniffer</h2>
+<div class="alert alert-info" style="position: absolute; top: 10px;width: 230px;float: right;right: 10px;" >
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <b>Heads up! </b>Define your own endpoint to sniff around your API. <button class="btn">Start!</button>
+</div>
+<b><i>Sniff your RESTful API!</i></b><br/>
+<br/>
+API Sniffer is a tool that assists developers as well as non-technical users to better understand exposed APIs (Application Protocol Interface). As nowdays RESTful APIs follow similar guidelines, it is possible to monitor and formalize pre-defined Web services.
+<table class="table">
+	<thead>
+	<tr>
+      <td width="5%">Sniff?</td>
+      <td width="20%">API Provider</td>
+      <td>Endpoint</td>
+	</tr>
+	</thead>
+  <tbody>
+    <tr>
+      <td><label class="checkbox"><input type="checkbox"></label></td>
+      <td>Facebook</td>
+      <td>api.facebook.com</td>
+    </tr>
+    <tr>
+      <td><label class="checkbox"><input type="checkbox"></label></td>
+      <td>Twitter</td>
+      <td>api.twitter.com/</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="margin: -20px">
+	<form class="well form-inline" style="padding-top: 10px; padding-bottom: 10px">
+	  <input type="text" class="input-small" style="visibility: hidden; width: 20px">
+	  <input type="text" class="input-small" placeholder="API name">
+	  <input type="text" style="width: 200px" class="input-small" placeholder="API endpoint">
+	  <button type="submit" class="btn">Create!</button>
+	</form>
+</div>
+
+</body>
+</html>
