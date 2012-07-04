@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="lib/URI.js"></script>
 	<script type="text/javascript" src="lib/shorten.js"></script>
 	<script type="text/javascript" src="lib/moment.js"></script>
-    <script type="text/javascript" src="lib/panel.js"></script>
+    <script type="text/javascript" src="lib/popup.js"></script>
 
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
 <body style="width: 500px; height: 100px">
 <br/><h2>API Sniffer</h2>
 <div class="alert alert-info" style="position: absolute; top: 10px;width: 230px;float: right;right: 10px;" >
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <button id="alert_close" type="button" class="close" data-dismiss="alert">&times;</button>
   <b>Heads up! </b>Define your own endpoint to sniff around your API. <button class="btn">Start!</button>
 </div>
 <b><i>Sniff your RESTful API!</i></b><br/>
@@ -39,7 +39,8 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
 	<tr>
       <td width="5%">Sniff?</td>
       <td width="20%">API Provider</td>
-      <td>Endpoint</td>
+      <td width="40%">Endpoint</td>
+      <td></td>
 	</tr>
 	</thead>
   <tbody>
@@ -47,20 +48,51 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
       <td><label class="checkbox"><input type="checkbox"></label></td>
       <td>Facebook</td>
       <td>api.facebook.com</td>
+      <td>
+		<div class="btn-group">
+		  <button class="btn">Action</button>
+		  <button class="btn dropdown-toggle" data-toggle="dropdown">
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		   	<li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+		  </ul>
+		</div>
+	</td>
     </tr>
     <tr>
       <td><label class="checkbox"><input type="checkbox"></label></td>
       <td>Twitter</td>
       <td>api.twitter.com/</td>
+      <td>
+		<div class="btn-group">
+		  <button class="btn">Action</button>
+		  <button class="btn dropdown-toggle" data-toggle="dropdown">
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		   	<li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+		  </ul>
+		</div>
+	</td>
     </tr>
   </tbody>
 </table>
-
+<br/>
 <div style="margin: -20px">
-	<form class="well form-inline" style="padding-top: 10px; padding-bottom: 10px">
+	<form name="myform" class="well form-inline" style="padding-top: 10px; padding-bottom: 10px">
 	  <input type="text" class="input-small" style="visibility: hidden; width: 20px">
-	  <input type="text" class="input-small" placeholder="API name">
+	  <input id="api_name" type="text" class="input-small" placeholder="API name">
 	  <input type="text" style="width: 200px" class="input-small" placeholder="API endpoint">
+	  <input type="text" class="input-small" style="visibility: hidden; width: 10px">
 	  <button type="submit" class="btn">Create!</button>
 	</form>
 </div>
