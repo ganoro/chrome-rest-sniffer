@@ -24,20 +24,36 @@
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
   
+  	<script type="text/template" id="provider_entry">
+
+
+
+    	<li id="list_entry_<%= sid %>"><a href="#s/<%= sid %>">
+			<table style="width: 100%">
+  				<tr>
+	    			<td><%= name %></td>
+	    			<td style="text-align:right; align: right;float:right;"><span class="label <%= res_label %>"><%= res_statusText %></span></td>
+			 	</tr>
+			</table>
+		</a></li>
+	</script>   
+  
+  
 </head>
 <body style="width: 500px; height: 100px">
 <br/><h2>API Sniffer</h2>
-<div class="alert alert-info" style="position: absolute; top: 10px;width: 230px;float: right;right: 10px;" >
+<div id="alert_message" class="alert alert-info" style="position: absolute; top: 10px;width: 230px;float: right;right: 10px;" >
   <button id="alert_close" type="button" class="close" data-dismiss="alert">&times;</button>
   <b>Heads up! </b>Define your own endpoint to sniff around your API. <button class="btn">Start!</button>
 </div>
 <b><i>Sniff your RESTful API!</i></b><br/>
 <br/>
 API Sniffer is a tool that assists developers as well as non-technical users to better understand exposed APIs (Application Protocol Interface). As nowdays RESTful APIs follow similar guidelines, it is possible to monitor and formalize pre-defined Web services.
+<br/>
 <table class="table">
 	<thead>
 	<tr>
-      <td width="5%">Sniff?</td>
+      <td width="5%"></td>
       <td width="20%">API Provider</td>
       <td width="40%">Endpoint</td>
       <td></td>
@@ -49,15 +65,13 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
       <td>Facebook</td>
       <td>api.facebook.com</td>
       <td>
-		<div class="btn-group">
-		  <button class="btn">Action</button>
+		<div class="btn-group dropup">
+		  <button class="btn">Add Plugin</button>
 		  <button class="btn dropdown-toggle" data-toggle="dropdown">
 		    <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu">
-		   	<li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+		   	<li><a href="#">Mixpanel.com</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
 		  </ul>
@@ -69,17 +83,15 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
       <td>Twitter</td>
       <td>api.twitter.com/</td>
       <td>
-		<div class="btn-group">
-		  <button class="btn">Action</button>
+		<div class="btn-group dropup">
+		  <button class="btn">Add Plugin</button>
 		  <button class="btn dropdown-toggle" data-toggle="dropdown">
 		    <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu">
-		   	<li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+		   	<li><a href="#">Mixpanel.com</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">Custom...</a></li>
 		  </ul>
 		</div>
 	</td>
