@@ -8,36 +8,31 @@
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
-	<!-- Le javascript
-    ================================================== -->
-    <script type="text/javascript" src="lib/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="lib/underscore.js"></script>
-	<script type="text/javascript" src="lib/backbone.js"></script>
-	<script type="text/javascript" src="lib/URI.js"></script>
-	<script type="text/javascript" src="lib/shorten.js"></script>
-	<script type="text/javascript" src="lib/moment.js"></script>
-    <script type="text/javascript" src="lib/popup.js"></script>
+  	<script type="text/template" id="provider_entry">
+	    <tr>
+          <td><label class="checkbox"><input id="chk_<%= pid %>" type="checkbox" <% print(checked ? 'checked' : ''); %>></label></td>
+          <td><div id="name_<%= pid %>" style="white-space: nowrap" contenteditable="true"><%= name %></div></td>
+          <td><div id="endpoint_<%= pid %>" style="white-space: nowrap" contenteditable="true"><%= endpoint %></div></td>
+          <td>
+        	<div class="btn-group dropup">
+        	  <button class="btn">Add Action</button>
+        	  <button class="btn dropdown-toggle" data-toggle="dropdown">
+        	    <span class="caret"></span>
+        	  </button>
+        	  <ul class="dropdown-menu">
+        	   	<li><a href="#">Monitor with Mixpanel.com</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+        	  </ul>
+        	</div>
+        </td>
+    </tr>
+	</script>   
 
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
-  
-  	<script type="text/template" id="provider_entry">
-
-
-
-    	<li id="list_entry_<%= sid %>"><a href="#s/<%= sid %>">
-			<table style="width: 100%">
-  				<tr>
-	    			<td><%= name %></td>
-	    			<td style="text-align:right; align: right;float:right;"><span class="label <%= res_label %>"><%= res_statusText %></span></td>
-			 	</tr>
-			</table>
-		</a></li>
-	</script>   
-  
   
 </head>
 <body style="width: 500px; height: 100px">
@@ -59,43 +54,7 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
       <td></td>
 	</tr>
 	</thead>
-  <tbody>
-    <tr>
-      <td><label class="checkbox"><input type="checkbox"></label></td>
-      <td>Facebook</td>
-      <td>api.facebook.com</td>
-      <td>
-		<div class="btn-group dropup">
-		  <button class="btn">Add Plugin</button>
-		  <button class="btn dropdown-toggle" data-toggle="dropdown">
-		    <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu">
-		   	<li><a href="#">Mixpanel.com</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-		  </ul>
-		</div>
-	</td>
-    </tr>
-    <tr>
-      <td><label class="checkbox"><input type="checkbox"></label></td>
-      <td>Twitter</td>
-      <td>api.twitter.com/</td>
-      <td>
-		<div class="btn-group dropup">
-		  <button class="btn">Add Plugin</button>
-		  <button class="btn dropdown-toggle" data-toggle="dropdown">
-		    <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu">
-		   	<li><a href="#">Mixpanel.com</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Custom...</a></li>
-		  </ul>
-		</div>
-	</td>
-    </tr>
+  <tbody id="providers_table">
   </tbody>
 </table>
 <br/>
@@ -108,6 +67,17 @@ API Sniffer is a tool that assists developers as well as non-technical users to 
 	  <button type="submit" class="btn">Create!</button>
 	</form>
 </div>
+
+	<!-- Le javascript
+    ================================================== -->
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/underscore.js"></script>
+	<script type="text/javascript" src="lib/backbone.js"></script>
+	<script type="text/javascript" src="lib/URI.js"></script>
+	<script type="text/javascript" src="lib/shorten.js"></script>
+	<script type="text/javascript" src="lib/moment.js"></script>
+    <script type="text/javascript" src="lib/popup.js"></script>
 
 </body>
 </html>
