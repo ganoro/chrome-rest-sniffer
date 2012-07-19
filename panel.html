@@ -146,11 +146,32 @@
 				  </div>							  
 			  </div>
 		</div>
-	</script>    
+	</script>
+	
+	<script type="text/template" id="tab_list_template">
+	    <li<% print(active ? ' class=\"active\"' : '');%>><a href="#tab<%= pid %>" data-toggle="tab"><%= name %></a></li>
+	</script>
+
+	<script type="text/template" id="tab_view_template">
+		    <div class="tab-pane active" id="tab<%= pid %>">
+				   <div class="row-fluid show-grid" >
+					  <div class="span12" >
+					    <div class="row-fluid" >
+					    	<div class="span2">
+					            <ul id="api_list<%= pid %>" class="nav nav-list">
+					            </ul>
+				        	</div>
+					        <div id="main_view<%= pid %>" class="span10">
+					        </div>
+			        	</div>
+				  	</div>
+	  	       </div>
+			</div>
+	</script>
   </head>
 
   <body>
-
+  
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -163,39 +184,13 @@
 
     <div class="container-fluid">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
-		  <ul class="nav nav-tabs">
-		    <li class="active"><a href="#tab1" data-toggle="tab">SohoOS API</a></li>
+		  <ul id="tabs_list" class="nav nav-tabs">
+		  	<!-- tabs list -->
 		  </ul>
-		  <div class="tab-content">
-		    <div class="tab-pane active" id="tab1">
-				   <div class="row-fluid show-grid" >
-					  <div class="span12" >
-					    <div class="row-fluid" >
-					    	<div class="span2">
-					            <ul id="api_list" class="nav nav-list">
-					            </ul>
-				        	</div>
-				        	
-					        <div id="main_view" class="span10">
-					        </div>
-					        
-			        	</div>
-				  	</div>
-	  	       </div>
-			</div>
-		    <div class="tab-pane" id="tab2">
-				Second tab...
-		    </div>
-		    <div class="tab-pane" id="tab3">
-				Third tab...
-		    </div>
-		    <div class="tab-pane" id="tab4">
-				Third tab...
-		    </div>
+		  <div id="tabs_view" class="tab-content">
+		  	<!-- tabs view -->
 		  </div>
 		</div>
-
     </div> <!-- /container -->
-  
   </body>
 </html>
