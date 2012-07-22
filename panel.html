@@ -44,6 +44,13 @@
 		padding-right: 4px;
 		padding-top: 2px;
       }
+      
+	    pre {padding: 5px; margin: 5px; }
+		.string { color: green; }
+		.number { color: darkorange; }
+		.boolean { color: blue; }
+		.null { color: magenta; }
+		.key { color: red; }
     </style>
     
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -72,7 +79,7 @@
         	 <br/>
         </div>
 			<div class="row">
-	        	<div class="span5">
+	        	<div class="span4">
 				  <div class="well" style="padding-top: 10px">
 				  	   <b>Input Parameters</b><br/>
 					   <table class="table table-condensed">
@@ -115,21 +122,10 @@
 						</table>
 				  </div>							  
 			  </div>
-		      <div class="span5">
+		      <div class="span8">
 				  <div class="well" style="padding-top: 10px">
 				  <b>Output Parameters</b><br/>
-				   <table class="table table-condensed">
-					  <tbody>
-		                       <% _.each(res_parameters,function(item,key,list){ %>
-                               <% var ik = item.name %>
-                               <% var iv = item.value %>
-                               <tr>
-							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
-							       <td><span class="shorten75"><%= iv %></span></td>
-                               </tr>
-	                           <% }) %>
-					  </tbody>
-					</table>
+					<pre><%= res_parameters %></pre>
 					<a href="javascript:toggleTable('res_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="res_headers_tip">show</span>)</a><br/>
 					<table class="table table-condensed hidden" id="res_headers_table">
 					  <tbody>
