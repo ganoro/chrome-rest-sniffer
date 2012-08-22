@@ -24,7 +24,7 @@
 
     <style>
       body {
-        /* padding-top: 50px; 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 50px; /* to make the container go all the way to the bottom of the topbar */
       }
       
       .coder {
@@ -145,7 +145,7 @@
 	</script>
 	
 	<script type="text/template" id="tab_list_template">
-	    <li<% print(active ? ' class=\"active\"' : '');%>><a href="#tab<%= pid %>" data-toggle="tab"><%= name %></a></li>
+	    <li id="navbar-<%= pid %>"><a href="#t/<%= pid %>"><%= name %></a></li>
 	</script>
 
 	<script type="text/template" id="tab_view_template">
@@ -167,15 +167,26 @@
   </head>
 
   <body>
-	<br/>  
-    <div class="container-fluid">
-		<div class="tabbable"> <!-- Only required for left/right tabs -->
-		  <ul id="tabs_list" class="nav nav-tabs">
-		  </ul>
-		  <div id="tabs_view" class="tab-content">
-		  	<!-- tabs view -->
-		  </div>
-		</div>
-    </div> <!-- /container -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav" id="tabs_list">
+            </ul>
+            <ul class="nav" >
+ 			  <li class="divider-vertical"></li>
+              <li class="">
+				<form class="navbar-search pull-left">
+				  <input type="text" class="search-query" placeholder="Search">
+				</form>
+              </li>            
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div><!-- /navbar -->
+  
+	  <br/>  
+    <div class="container-fluid" id="tabs_view"></div>
   </body>
 </html>
