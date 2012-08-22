@@ -1,7 +1,7 @@
-API Sniffer is a tool that assists developers as well as non-technical users to better understand exposed Application Protocol Interface (API). As nowdays (RESTful) APIs follow similar guidelines, it is possible to monitor and formalize pre-defined Web services.
+REST Sniffer is a tool that assists developers as well as non-technical users to better understand exposed Application Protocol Interface (API). As nowdays (RESTful) APIs follow similar guidelines, it is possible to monitor and formalize pre-defined Web services.
 The tool is based on Google Chrome (provided as an extension) and allows to add 3rd party plugins that hook into its core functionality.  
 
-With the API Sniffer you could:
+With the REST Sniffer you could:
 - Discover protocols of predefined Web services.
 - Automatically hook mixpanel.com monitoring (https://mixpanel.com).
 
