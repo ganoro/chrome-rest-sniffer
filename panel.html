@@ -13,6 +13,7 @@
 	<!-- Le javascript
     ================================================== -->
     <script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/ashe.js"></script>
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="lib/underscore.js"></script>
 	<script type="text/javascript" src="lib/backbone.js"></script>
@@ -20,7 +21,6 @@
 	<script type="text/javascript" src="lib/shorten.js"></script>
 	<script type="text/javascript" src="lib/moment.js"></script>
     <script type="text/javascript" src="lib/panel.js"></script>
-    <script type="text/javascript" src="lib/mixpanel.js"></script>
 
     <style>
       body {
@@ -59,11 +59,11 @@
     <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
   
 	<script type="text/template" id="session_entry">
-    	<li id="list_entry_<%= sid %>"><a href="#s/<%= sid %>">
+    	<li id="list_entry_{{ sid }}"><a href="#s/{{ sid }}">
 			<table style="width: 100%">
   				<tr>
-	    			<td><%= name %></td>
-	    			<td style="text-align:right; align: right;float:right;"><span class="label <%= res_label %>"><%= res_statusText %></span></td>
+	    			<td>{{ name }}</td>
+	    			<td style="text-align:right; align: right;float:right;"><span class="label {{ res_label }}">{{ res_statusText }}</span></td>
 			 	</tr>
 			</table>
 		</a></li>
@@ -71,10 +71,10 @@
 	
 	<script type="text/template" id="main_view_template">
         <div id="session-header" style="margin-left: -20px">
-	        <span title="<%= url %>"><code><%= method %> <%= action %></code>&nbsp;&nbsp;&nbsp;</span>
-        	<span class="badge <%= res_badge %>"><%= res_statusText %></span>&nbsp;&nbsp;&nbsp;
-        	<span class="badge"><%= res_timings %>ms</span>&nbsp;&nbsp;&nbsp;
-        	<span class="badge"><%= datetime %></span>
+	        <span title="{{ url }}"><code>{{ method }} {{ action }}</code>&nbsp;&nbsp;&nbsp;</span>
+        	<span class="badge {{ res_badge }}">{{ res_statusText }}</span>&nbsp;&nbsp;&nbsp;
+        	<span class="badge">{{ res_timings }}ms</span>&nbsp;&nbsp;&nbsp;
+        	<span class="badge">{{ datetime }}</span>
         	 <br/>
         	 <br/>
         </div>
@@ -84,40 +84,34 @@
 				  	   <b>Input Parameters</b><br/>
 					   <table class="table table-condensed">
 						  <tbody>
-		                       <% _.each(req_parameters,function(item,key,list){ %>
-                               <% var ik = item.name %>
-                               <% var iv = item.value %>
+    						   {% for item in req_parameters %}
                                <tr>
-							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
-							       <td><span class="shorten75"><%= iv %></span></td>
+							       <td style="width: 40%"><span class="shorten25">{{ item.name }}</span></td>
+							       <td><span class="shorten75">{{ item.value }}</span></td>
                                </tr>
-	                           <% }) %>
+    						   {% endfor %}
 						  </tbody>
 						</table>
 					   <a href="javascript:toggleTable('req_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="req_headers_tip">show</span>)</a><br/>
 					   <table class="table table-condensed hidden" id="req_headers_table">
 						  <tbody>
-		                       <% _.each(req_headers,function(item,key,list){ %>
-                               <% var ik = item.name %>
-                               <% var iv = item.value %>
+    						   {% for item in req_headers %}
                                <tr>
-							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
-							       <td><span class="shorten75"><%= iv %></span></td>
+							       <td style="width: 40%"><span class="shorten25">{{ item.name }}</span></td>
+							       <td><span class="shorten75">{{ item.value }}</span></td>
                                </tr>
-	                           <% }) %>
+    						   {% endfor %}
 						  </tbody>
 						</table>
 					   <a href="javascript:toggleTable('req_cookies')" style="text-decoration: none;"><b>Cookies</b>(<span id="req_cookies_tip">show</span>)</a><br/>
 					   <table class="table table-condensed hidden" id="req_cookies_table">
 						  <tbody>
-		                       <% _.each(req_cookies,function(item,key,list){ %>
-                               <% var ik = item.name %>
-                               <% var iv = item.value %>
+    						   {% for item in req_cookies %}
                                <tr>
-							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
-							       <td><span class="shorten75"><%= iv %></span></td>
+							       <td style="width: 40%"><span class="shorten25">{{ item.name }}</span></td>
+							       <td><span class="shorten75">{{ item.value }}</span></td>
                                </tr>
-	                           <% }) %>
+    						   {% endfor %}
 						  </tbody>
 						</table>
 				  </div>							  
@@ -125,18 +119,16 @@
 		      <div class="span8">
 				  <div class="well" style="padding-top: 10px">
 				  <b>Output Parameters</b><br/>
-					<pre><%= res_parameters %></pre>
+					<pre>{{ res_parameters }}</pre>
 					<a href="javascript:toggleTable('res_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="res_headers_tip">show</span>)</a><br/>
 					<table class="table table-condensed hidden" id="res_headers_table">
 					  <tbody>
-		                       <% _.each(res_headers,function(item,key,list){ %>
-                               <% var ik = item.name %>
-                               <% var iv = item.value %>
+    						   {% for item in res_headers %}
                                <tr>
-							       <td style="width: 40%"><span class="shorten25"><%= ik %></span></td>
-							       <td><span class="shorten75"><%= iv %></span></td>
+							       <td style="width: 40%"><span class="shorten25">{{ item.name }}</span></td>
+							       <td><span class="shorten75">{{ item.value }}</span></td>
                                </tr>
-	                           <% }) %>
+    						   {% endfor %}
 					  </tbody>
 					</table>
 				  </div>							  
@@ -145,19 +137,19 @@
 	</script>
 	
 	<script type="text/template" id="tab_list_template">
-	    <li id="navbar-<%= pid %>"><a href="#t/<%= pid %>"><%= name %></a></li>
+	    <li id="navbar-{{ pid }}"><a href="#t/{{ pid }}">{{ name }}</a></li>
 	</script>
 
 	<script type="text/template" id="tab_view_template">
-		    <div class="tab-pane<% print(active ? ' active' : '') %>" id="tab<%= pid %>">
+		    <div class="tab-pane {% if active %} 'active' {% end if %}" id="tab{{ pid }}">
 				   <div class="row-fluid show-grid" >
 					  <div class="span12" >
 					    <div class="row-fluid" >
 					    	<div class="span2">
-					            <ul id="api_list<%= pid %>" class="nav nav-list">
+					            <ul id="api_list{{ pid }}" class="nav nav-list">
 					            </ul>
 				        	</div>
-					        <div id="main_view<%= pid %>" class="span10">
+					        <div id="main_view{{ pid }}" class="span10">
 					        </div>
 			        	</div>
 				  	</div>

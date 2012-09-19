@@ -3,16 +3,15 @@
 <head>
    <meta charset="utf-8">
     <title>REST Sniffer</title>
-
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
   	<script type="text/template" id="provider_entry">
 	    <tr>
-          <td><label class="checkbox"><input id="chk_<%= pid %>" type="checkbox" <% print(checked ? 'checked' : ''); %>></label></td>
-          <td><div id="name_<%= pid %>" style="white-space: nowrap" contenteditable="true"><%= name %></div></td>
-          <td><div id="endpoint_<%= pid %>" style="white-space: nowrap" contenteditable="true"><%= endpoint %></div></td>
+          <td><label class="checkbox"><input id="chk_{{ pid }}" type="checkbox" {% if checked %} checked="checked" {% endif %}></label></td>
+          <td><div id="name_{{ pid }}" style="white-space: nowrap" contenteditable="true">{{ name }}</div></td>
+          <td><div id="endpoint_{{ pid }}" style="white-space: nowrap" contenteditable="true">{{ endpoint }}</div></td>
           <td>
         	<div class="btn-group dropup">
         	  <button class="btn">Add Action</button>
@@ -30,10 +29,6 @@
 	</script>   
 
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="lib/bootstrap/ico/favicon.ico">
-  
 </head>
 <body style="width: 500px">
 <br/><h2>REST Sniffer</h2>
@@ -49,7 +44,7 @@ REST Sniffer is a tool that assists developers as well as non-technical users to
 	<thead>
 	<tr>
       <td width="5%"></td>
-      <td width="20%">Provider Name</td>
+      <td width="20%">Provider</td>
       <td width="40%">Endpoint</td>
       <td></td>
 	</tr>
@@ -71,6 +66,7 @@ REST Sniffer is a tool that assists developers as well as non-technical users to
 	<!-- Le javascript
     ================================================== -->
     <script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/ashe.js"></script>
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="lib/underscore.js"></script>
 	<script type="text/javascript" src="lib/backbone.js"></script>

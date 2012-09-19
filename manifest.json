@@ -2,11 +2,19 @@
   "name": "REST Sniffer",
   "description": "A developers tool that extends the Network tab",
   "version": "0.0.4",
+  "manifest_version": 2,
   "icons": { "48": "images/logo48.png", "128": "images/logo128.png" },	
   "permissions": ["cookies", "webRequest", "<all_urls>"],
   "devtools_page": "devtools.html",
-  "background_page": "background.html",
-  "minimum_chrome_version": "10.0",
+  "background":  {
+	  "scripts" : ["lib/jquery.min.js", 
+	  	"lib/underscore.js", 
+	  	"lib/backbone.js", 
+	  	"lib/background.js"
+	  ]
+  },
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "minimum_chrome_version": "18.0",
   "browser_action": {
     "default_icon": "images/logo16.png", 
     "default_title": "REST Sniffer",      
@@ -14,5 +22,3 @@
   },
   "options_page": "options.html"
 }
-
-
