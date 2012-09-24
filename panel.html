@@ -9,6 +9,7 @@
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="lib/tipsy/src/stylesheets/tipsy.css" rel="stylesheet">
 
 	<!-- Le javascript
     ================================================== -->
@@ -21,6 +22,7 @@
 	<script type="text/javascript" src="lib/shorten.js"></script>
 	<script type="text/javascript" src="lib/moment.js"></script>
     <script type="text/javascript" src="lib/panel.js"></script>
+    <script type="text/javascript" src="lib/tipsy/src/javascripts/jquery.tipsy.js"></script>
 
     <style>
       body {
@@ -71,7 +73,7 @@
 	
 	<script type="text/template" id="main_view_template">
         <div id="session-header" style="margin-left: -20px">
-	        <span title="{{ url }}"><code>{{ method }} {{ action }}</code>&nbsp;&nbsp;&nbsp;</span>
+	        <span id="fullurl" title="<pre>{{ url }}</pre>"><code>{{ method }} {{ action }}</code>&nbsp;&nbsp;&nbsp;</span>
         	<span class="badge {{ res_badge }}">{{ res_statusText }}</span>&nbsp;&nbsp;&nbsp;
         	<span class="badge">{{ res_timings }}ms</span>&nbsp;&nbsp;&nbsp;
         	<span class="badge">{{ datetime }}</span>
