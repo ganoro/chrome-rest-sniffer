@@ -77,7 +77,18 @@
 	        <span id="fullurl" title="<pre>{{ url }}</pre>"><code>{{ method }} {{ action }}</code>&nbsp;&nbsp;&nbsp;</span>
         	<span class="badge {{ res_badge }}">{{ res_statusText }}</span>&nbsp;&nbsp;&nbsp;
         	<span class="badge">{{ res_timings }}ms</span>&nbsp;&nbsp;&nbsp;
-        	<span class="badge">{{ datetime }}</span>
+        	<span class="badge">{{ datetime }}</span>&nbsp;&nbsp;&nbsp;
+        	<span class="btn-group">
+        		<a href="#load/{{ sid }}" class="btn btn-primary btn-mini">Load in REST Client</a>
+        		<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+  				  <span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu">
+  					<li ><a href="#info"><small><b>Read more...</b></small></a></li>
+  					<li ><a href="#load/{{ sid }}"><small>Load in Advanced REST Client</small></a></li>
+  					<li ><a href="#install"><small>Install Advanced REST Client Extension</small></a></li>
+  				</ul>
+        	</span>	
         	 <br/>
         	 <br/>
         </div>
